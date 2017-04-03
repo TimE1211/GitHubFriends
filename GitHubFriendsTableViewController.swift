@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GitHubFriendsTableViewController: UITableViewController, APIControllerProtocol
+class GitHubFriendsTableViewController: UITableViewController, APIControllerProtocol, NewFriendViewControllerDelegate
 {
   var friends = [Friend]()
   
@@ -54,9 +54,13 @@ class GitHubFriendsTableViewController: UITableViewController, APIControllerProt
     }
   }
   
-
   override func prepare(for segue: UIStoryboardSegue, sender: Any?)
   {
-//    let segue.destinationViewController = NewFriendViewController
+    let newFriendViewController = segue.destination as! NewFriendViewController
+    newFriendViewController.delegate = self
+  }
+  blah(results: results)
+  {
+  
   }
 }

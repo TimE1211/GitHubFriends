@@ -8,22 +8,31 @@
 
 import UIKit
 
+protocol NewFriendViewControllerDelegate
+{
+  func blah(results: )
+}
+
 class NewFriendViewController: UIViewController
 {
 
-    override func viewDidLoad()
-    {
-        super.viewDidLoad()
-    }
-
-    override func didReceiveMemoryWarning()
-    {
-        super.didReceiveMemoryWarning()
-    }
+  var delegate = NewFriendViewControllerDelegate.self
   
+  override func viewDidLoad()
+  {
+    super.viewDidLoad()
+  }
+
+  override func didReceiveMemoryWarning()
+  {
+    super.didReceiveMemoryWarning()
+  }
+
   @IBAction func SearchTapped(_ sender: UIButton)
   {
     self.dismiss(animated: true, completion: nil)
+    var results = ""
+    delegate.blah(results: results)
   }
 
   @IBAction func CancelTapped(_ sender: UIButton)
