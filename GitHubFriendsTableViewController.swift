@@ -41,7 +41,7 @@ class GitHubFriendsTableViewController: UITableViewController, APIControllerProt
   {
     let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath)
     let aFriend = friends[indexPath.row]
-    cell.textLabel?.text = aFriend.title
+    cell.textLabel?.text = aFriend.login
     return cell
   }
   

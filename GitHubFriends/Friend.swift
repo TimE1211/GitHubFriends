@@ -10,20 +10,20 @@ import Foundation
 
 struct Friend
 {
-  let title: String
-  let price: String
-  let thumbnailImageURL: String
-  let largeImageURL: String
-  let itemURL: String
+  let login: String
+  let name: String
+  let bio: String
+  let avatarURL: String
+  let repoURL: String
   let artistURL: String
   
-  init(name: String, price: String, thumbnailImageURL: String, largeImageURL: String, itemURL: String, artistURL: String)
+  init(login: String, name: String, bio: String, avatarURL: String, repoURL: String, artistURL: String)
   {
-    title = name
-    self.price = price
-    self.thumbnailImageURL = thumbnailImageURL
-    self.largeImageURL = largeImageURL
-    self.itemURL = itemURL
+    self.login = login
+    self.name = name
+    self.bio = bio
+    self.avatarURL = avatarURL
+    self.repoURL = repoURL
     self.artistURL = artistURL
   }
   
@@ -37,31 +37,14 @@ struct Friend
       {
         if let dictionary = result as? [String: Any]
         {
-          if let name = dictionary["collectionName"] as? String
+          if let login = dictionary["collectionName"] as? String
           {
-            var price = dictionary["formattedPrice"] as? String
-            if price == nil
-            {
-              price = dictionary["collectionPrice"] as? String
-              if price == nil
-              {
-                if let priceFloat = dictionary["collectionPrice"] as? Float
-                {
-                  let nf = NumberFormatter()
-                  nf.maximumFractionDigits = 2
-                  price = "S\(nf.string(from: NSNumber(value: priceFloat))!)"
-                }
-              }
-            }
-            let thumbnailURL = dictionary["artworkUrl60"] as? String ?? ""
-            let imageURL = dictionary["artworkUrl100"] as? String ?? ""
+            let name = dictionary["safl;"] as? String ?? ""
+            let bio = dictionary["artworkUrl60"] as? String ?? ""
+            let avatarURL = dictionary["artworkUrl100"] as? String ?? ""
             let artistURL = dictionary["artistViewUrl"] as? String ?? ""
-            var itemURL = dictionary["collectionViewUrl"] as? String
-            if itemURL == nil
-            {
-              itemURL = dictionary["trackViewUrl"] as? String
-            }
-            let aFriend = Friend(name: name, price: price!, thumbnailImageURL: thumbnailURL, largeImageURL: imageURL, itemURL: itemURL!, artistURL: artistURL)
+            let repoURL = dictionary["collectionViewUrl"] as? String ?? ""
+            let aFriend = Friend(login: login, name: name, bio: bio, avatarURL: avatarURL, repoURL: repoURL, artistURL: artistURL)
             friends.append(aFriend)
           }
         }

@@ -27,7 +27,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="cHX-Z1-Pwa" kind="show" id="dgr-Vz-EMg"/>
+                                    <segue destination="cHX-Z1-Pwa" kind="presentation" id="dgr-Vz-EMg"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -59,14 +59,23 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="cHX-Z1-Pwa" id="XXV-D4-KYO"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHd-jD-aa1">
                                 <rect key="frame" x="281" y="388" width="48" height="30"/>
                                 <state key="normal" title="Search"/>
+                                <connections>
+                                    <action selector="SearchTapped:" destination="cHX-Z1-Pwa" eventType="touchUpInside" id="bu6-zu-ijm"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VUo-Fl-43f">
                                 <rect key="frame" x="46" y="388" width="48" height="30"/>
                                 <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="CancelTapped:" destination="cHX-Z1-Pwa" eventType="touchUpInside" id="Qoy-hV-nNg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
